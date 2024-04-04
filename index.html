@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //klasa per libra
+        var buki = function (title, author, pages) {
+            this.title = title;
+            this.author = author;
+            this.pages = pages;
+        };
+        //function library(title, author){...}
+
+        //metoda per me i qite detajet e librit
+        buki.prototype.DisplayDetails = function () {
+            console.log("Titulli: " + this.title);
+            console.log("Author: " + this.author);
+            console.log("Pages: " + this.pages);
+        };
+
+        //klasa per librari
+        function Libraria() {
+            this.books = [];
+        }
+
+        //metoda me shtu nje liber ne librari
+        Libraria.prototype.addBook = function (buki) {
+            this.books.push(buki);
+        };
+        //metoda per me i qit krejt librat ne librari
+        Libraria.prototype.displayBook = function () {
+            console.log("Librat qe jane ne librari: ");
+            for (var i = 0; i < this.books.length; i++) {
+                console.log("Libri " + (i + 1) + ":");
+                this.books[i].DisplayDetails();
+                console.log("-------------------------")
+            }
+        }
+        //(i+1)- qe me marr edhe el te fundit ne list
+
+
+        //krijimi i objekteve
+        let book1 = new buki("THE WOMEN","Kristin Hannah", 244);
+        let book2 = new buki("GET IT TOGETHER","Jesse Watters", 754);
+        let book3 = new buki("THE WAGER","David Grann", 123);
+        let book4 = new buki("THE #1 LAWYER","James Patterson and Nancy Allen", 633);
+
+        //krijimi i objektit te libraris
+        var library= new Libraria()
+
+        //i kemi fut te dhenat e librit ne librari
+        library.addBook(book1)
+        library.addBook(book2)
+        library.addBook(book3)
+        library.addBook(book4)
+
+        library.displayBook()
+
+    </script>
+</body>
+
+</html>

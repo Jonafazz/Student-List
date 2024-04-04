@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function students(name, surname, year, major) {
+            this.name = name;
+            this.surname = surname;
+            this.year = year;
+            this.major = major;
+        }
+
+        students.prototype.DisplayInfo = function () {
+            console.log("Name: " + this.name);
+            console.log("Surname: " + this.surname);
+            console.log("Year: " + this.year);
+            console.log("Major: " + this.major);
+        }
+
+        function shkolla() {
+            this.nxenesit = [];
+        }
+
+        shkolla.prototype.addStudent = function (students) {
+            this.nxenesit.push(students)
+        }
+
+        shkolla.prototype.displayStudent = function () {
+            console.log("Nxenesat me te mire te universitetit tone: ");
+            for (var i = 0; i < this.nxenesit.length; i++) {
+                console.log("Nx. " + (i + 1) + ":");
+                this.nxenesit[i].DisplayInfo();
+                console.log("-------------------")
+            }
+        }
+
+        let st1 = new students("Diona", "Lera", "2nd Year", "Biology")
+        let st2 = new students("Hakiman", "Potter", "3rd Year", "Psychology")
+        let st3 = new students("Jack", "Cana", "3rd Year", "Computer Science")
+        let st4 = new students("Harpy", "Hearthet", "1st Year", "Mathematics")
+        let st5 = new students("Harry", "Awam", "2nd Year", "Computer Science")
+
+        var University = new shkolla()
+
+        University.addStudent(st1)
+        University.addStudent(st2)
+        University.addStudent(st3)
+        University.addStudent(st4)
+        University.addStudent(st5)
+
+        University.displayStudent()
+
+    </script>
+</body>
+
+</html>
